@@ -28,6 +28,10 @@ public class PassengerService {
         return passengerRepository.findByPassengerName(name);
     }
 
+    public void deletePassengerById(long id) {
+        passengerRepository.deleteById(id);
+    }
+
     public Passenger updatePassenger(Passenger updatedPassenger) {
         Passenger passengerToUpdate = findPassengerById(updatedPassenger.getId());
 

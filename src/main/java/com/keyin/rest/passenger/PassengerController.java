@@ -30,4 +30,9 @@ public class PassengerController {
     public Passenger updatePassenger(@RequestBody Passenger updatedPassenger) {
         return passengerService.updatePassenger(updatedPassenger);
     }
+
+    @DeleteMapping("/passenger/{id}")
+    public void deletePasengerById(@PathVariable long id) {
+        passengerService.deletePassengerById(id);
+    }
 }
