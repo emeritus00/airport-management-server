@@ -28,6 +28,10 @@ public class AirportService {
         return airportRepository.findByAirportName(name);
     }
 
+    public void deleteAirportById(long id) {
+        airportRepository.deleteById(id);
+    }
+
     public Airport updateAirport(Airport updatedAirport) {
         Airport airportToUpdate = findAirportById(updatedAirport.getId());
 
