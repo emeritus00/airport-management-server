@@ -30,4 +30,9 @@ public class AirportController {
     public Airport updateAirport(@RequestBody Airport updatedAirport) {
         return airportService.updateAirport(updatedAirport);
     }
+
+    @DeleteMapping("/airport/{id}")
+    public void deleteDivisionById(@PathVariable long id) {
+        airportService.deleteAirportById(id);
+    }
 }
