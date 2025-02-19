@@ -30,5 +30,10 @@ public class AircraftController {
     public Aircraft updateAircraft(@RequestBody Aircraft updatedAircraft) {
         return aircraftService.updateAircraft(updatedAircraft);
     }
+
+    @DeleteMapping("/aircraft/{id}")
+    public void deleteAircraftById(@PathVariable long id) {
+        aircraftService.deleteAircraftById(id);
+    }
 }
 

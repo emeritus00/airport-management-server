@@ -28,6 +28,10 @@ public class AircraftService {
         return aircraftRepository.findByAircraftName(name);
     }
 
+    public void deleteAircraftById(long id) {
+        aircraftRepository.deleteById(id);
+    }
+
     public Aircraft updateAircraft(Aircraft updatedAircraft) {
         Aircraft aircraftToUpdate = findAircraftById(updatedAircraft.getId());
 
