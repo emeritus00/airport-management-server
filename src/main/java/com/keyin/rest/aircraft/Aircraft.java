@@ -1,5 +1,6 @@
 package com.keyin.rest.aircraft;
 
+import com.keyin.rest.passenger.Passenger;
 import jakarta.persistence.*;
 import java.util.List;
 
