@@ -1,7 +1,7 @@
 package com.keyin.rest.passenger;
 
 import com.keyin.rest.aircraft.Aircraft;
-import com.keyin.rest.cities.City;
+import com.keyin.rest.city.City;
 import jakarta.persistence.*;
 import java.util.List;
 
