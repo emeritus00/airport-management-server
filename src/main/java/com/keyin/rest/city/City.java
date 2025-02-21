@@ -1,7 +1,9 @@
 package com.keyin.rest.city;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.keyin.rest.airport.Airport;
+import com.keyin.rest.passenger.Passenger;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -16,9 +18,13 @@ public class City {
     private String state;
     private int population;
 
-    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference // Manages the relationship
     private List<Airport> airports;
+
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference // Prevents infinite recursion
+    private List<Passenger> passengers;
 
     // Getters and Setters
 

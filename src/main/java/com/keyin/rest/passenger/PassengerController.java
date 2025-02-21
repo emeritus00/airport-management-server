@@ -1,6 +1,6 @@
 package com.keyin.rest.passenger;
 
-import com.keyin.rest.city.City;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -16,9 +16,15 @@ public class PassengerController {
         return passengerService.findAllPassengers();
     }
 
-    @GetMapping("/passenger/{id}")
+    @GetMapping("/passengers/{id}")
     public Passenger getPassengerByID(@PathVariable long id) {
         return passengerService.findPassengerById(id);
+    }
+
+
+    @GetMapping("/passengers/passenger/{lastName}")
+    public Passenger getPassengerByLastName(@PathVariable String lastName) {
+        return passengerService.findPassengerByLastName(lastName);
     }
 
     @PostMapping("/passenger")
@@ -27,18 +33,9 @@ public class PassengerController {
     }
 
     @PutMapping("/passenger/{id}")
-    public Passenger updatePassenger(@RequestBody Passenger updatedPassenger) {
+    public Passenger updatePassenger(@PathVariable long id, @RequestBody Passenger updatedPassenger) {
+        updatedPassenger.setId(id); // Set the ID from the path variable
         return passengerService.updatePassenger(updatedPassenger);
-    }
-
-    @GetMapping("/passenger/{firstName}")
-    public Passenger getPassengerByFirstName(@PathVariable String firstName) {
-        return passengerService.findPassengerByFirstName(firstName);
-    }
-
-    @GetMapping("/passenger/{lastName}")
-    public Passenger getPassengerByLastName(@PathVariable String lastName) {
-        return passengerService.findPassengerByLastName(lastName);
     }
 
     @DeleteMapping("/passenger/{id}")

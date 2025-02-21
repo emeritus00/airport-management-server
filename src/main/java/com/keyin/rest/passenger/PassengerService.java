@@ -24,9 +24,6 @@ public class PassengerService {
         return passengerRepository.save(newPassenger);
     }
 
-    public Passenger findPassengerByFirstName(String firstName) {
-        return passengerRepository.findByFirstName(firstName);
-    }
 
     public Passenger findPassengerByLastName(String lastName) {
         return passengerRepository.findByLastName(lastName);
@@ -37,9 +34,15 @@ public class PassengerService {
     }
 
     public Passenger updatePassenger(Passenger updatedPassenger) {
+
+        if (updatedPassenger.getId() == null) {
+            throw new IllegalArgumentException("Passenger ID cannot be null");
+        }
+
         Passenger passengerToUpdate = findPassengerById(updatedPassenger.getId());
 
         if (passengerToUpdate != null) {
+
             passengerToUpdate.setFirstName(updatedPassenger.getFirstName());
             passengerToUpdate.setLastName(updatedPassenger.getLastName());
             passengerToUpdate.setPhoneNumber(updatedPassenger.getPhoneNumber());
@@ -47,9 +50,10 @@ public class PassengerService {
             passengerToUpdate.setAircraft(updatedPassenger.getAircraft());
 
 
-            passengerRepository.save(passengerToUpdate);
+            return passengerRepository.save(passengerToUpdate);
+        } else {
+            throw new IllegalArgumentException("Passenger with ID " + updatedPassenger.getId() + " not found");
         }
-        return passengerToUpdate;
     }
 }
 

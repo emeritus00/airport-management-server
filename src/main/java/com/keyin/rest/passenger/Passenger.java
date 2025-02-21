@@ -1,15 +1,18 @@
 package com.keyin.rest.passenger;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.keyin.rest.aircraft.Aircraft;
 import com.keyin.rest.city.City;
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
 public class Passenger {
     @Id
-    @SequenceGenerator(name = "passenger_sequence", sequenceName = "passenger_sequence", allocationSize = 1, initialValue=1)
-    @GeneratedValue(generator = "passenger_sequence")
+    @SequenceGenerator(name = "passenger_sequence", sequenceName = "passenger_sequence", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "passenger_sequence")
     private Long id;
 
     private String firstName;
@@ -22,15 +25,15 @@ public class Passenger {
             joinColumns = @JoinColumn(name = "passenger_id"),
             inverseJoinColumns = @JoinColumn(name = "aircraft_id")
     )
+//    @JsonManagedReference
     private List<Aircraft> aircraft;
 
     @ManyToOne
     @JoinColumn(name = "city_id")
+//    @JsonBackReference
     private City city;
 
     // Getters and Setters
-
-
     public Long getId() {
         return id;
     }
@@ -79,4 +82,3 @@ public class Passenger {
         this.city = city;
     }
 }
-

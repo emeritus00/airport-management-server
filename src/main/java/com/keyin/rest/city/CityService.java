@@ -1,5 +1,7 @@
 package com.keyin.rest.city;
 
+import com.keyin.rest.airport.Airport;
+import com.keyin.rest.airport.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -9,6 +11,9 @@ import java.util.Optional;
 public class CityService {
     @Autowired
     private CityRepository cityRepository;
+
+    @Autowired
+    private AirportRepository airportRepository;
 
     public List<City> findAllCities() {
         return (List<City>) cityRepository.findAll();
@@ -32,17 +37,27 @@ public class CityService {
         cityRepository.deleteById(id);
     }
 
-    public City updateCity(City updatedCity) {
-        City cityToUpdate = findCityById(updatedCity.getId());
+    public City updateCity(long id, City updatedCity) {
+        Optional<City> cityOptional = cityRepository.findById(id);
 
-        if (cityToUpdate != null) {
+        if (cityOptional.isPresent()) {
+            City cityToUpdate = cityOptional.get();
             cityToUpdate.setName(updatedCity.getName());
-            cityToUpdate.setAirports(updatedCity.getAirports());
             cityToUpdate.setState(updatedCity.getState());
             cityToUpdate.setPopulation(updatedCity.getPopulation());
+            cityToUpdate.setAirports(updatedCity.getAirports());
 
-            cityRepository.save(cityToUpdate);
+            // Update the airports
+            if (updatedCity.getAirports() != null) {
+                for (Airport airport : updatedCity.getAirports()) {
+                    airport.setCity(cityToUpdate);
+                    airportRepository.save(airport);
+                }
+                cityToUpdate.setAirports(updatedCity.getAirports());
+            }
+
+            return cityRepository.save(cityToUpdate);
         }
-        return cityToUpdate;
+        return null;
     }
 }

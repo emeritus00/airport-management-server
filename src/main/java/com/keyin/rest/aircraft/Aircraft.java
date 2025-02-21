@@ -1,5 +1,6 @@
 package com.keyin.rest.aircraft;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.keyin.rest.passenger.Passenger;
 import jakarta.persistence.*;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Aircraft {
     private int numberOfPassengers;
 
     @ManyToMany(mappedBy = "aircraft")
+    @JsonBackReference // Prevents infinite recursion
     private List<Passenger> passengers;
 
     // Getters and Setters
