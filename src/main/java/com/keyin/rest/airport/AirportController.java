@@ -2,7 +2,6 @@ package com.keyin.rest.airport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -16,12 +15,12 @@ public class AirportController {
         return airportService.findAllAirports();
     }
 
-    @GetMapping("/airport/{id}")
+    @GetMapping("/airports/{id}")
     public Airport getAirportByID(@PathVariable long id) {
         return airportService.findAirportById(id);
     }
 
-    @GetMapping("/airport/{name}")
+    @GetMapping("/airports/airport/{name}")
     public Airport getAirportByName(@PathVariable String name) {
         return airportService.findAirportByName(name);
     }
@@ -31,12 +30,12 @@ public class AirportController {
         return airportService.createAirport(newAirport);
     }
 
-    @PutMapping("/airport/{id}")
-    public Airport updateAirport(@RequestBody Airport updatedAirport) {
-        return airportService.updateAirport(updatedAirport);
+    @PutMapping("/airports/{id}")
+    public Airport updateAirport(@PathVariable long id, @RequestBody Airport updatedAirport) {
+        return airportService.updateAirport(id, updatedAirport);
     }
 
-    @DeleteMapping("/airport/{id}")
+    @DeleteMapping("/airports/{id}")
     public void deleteDivisionById(@PathVariable long id) {
         airportService.deleteAirportById(id);
     }

@@ -1,5 +1,6 @@
 package com.keyin.rest.airport;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.keyin.rest.city.City;
 import jakarta.persistence.*;
 
@@ -15,6 +16,7 @@ public class Airport {
 
     @ManyToOne
     @JoinColumn(name = "city_id")
+    @JsonBackReference // Prevents infinite recursion
     private City city;
 
     // Getters and Setters

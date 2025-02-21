@@ -1,5 +1,6 @@
 package com.keyin.rest.city;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.keyin.rest.airport.Airport;
 import jakarta.persistence.*;
 import java.util.List;
@@ -16,6 +17,7 @@ public class City {
     private int population;
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    @JsonManagedReference // Manages the relationship
     private List<Airport> airports;
 
     // Getters and Setters

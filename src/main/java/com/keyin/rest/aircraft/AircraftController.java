@@ -16,9 +16,14 @@ public class AircraftController {
         return aircraftService.findAllAircrafts();
     }
 
-    @GetMapping("aircrafts/aircraft/{id}")
+    @GetMapping("aircrafts/{id}")
     public Aircraft getAircraftByID(@PathVariable long id) {
         return aircraftService.findAircraftById(id);
+    }
+
+    @GetMapping("/aircrafts/aircraft/{airlineName}")
+    public Aircraft getAircraftByName(@PathVariable String airlineName) {
+        return aircraftService.findAircraftByAirlineName(airlineName);
     }
 
     @PostMapping("/aircraft")
@@ -29,11 +34,6 @@ public class AircraftController {
     @PutMapping("aircrafts/{id}")
     public Aircraft updateAircraft(@PathVariable long id, @RequestBody Aircraft updatedAircraft) {
         return aircraftService.updateAircraft(id, updatedAircraft);
-    }
-
-    @GetMapping("/aircrafts/name/{airlineName}")
-    public Aircraft getAircraftByName(@PathVariable String airlineName) {
-        return aircraftService.findAircraftByAirlineName(airlineName);
     }
 
     @DeleteMapping("/aircrafts/{id}")

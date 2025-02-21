@@ -32,16 +32,18 @@ public class AirportService {
         airportRepository.deleteById(id);
     }
 
-    public Airport updateAirport(Airport updatedAirport) {
-        Airport airportToUpdate = findAirportById(updatedAirport.getId());
+    public Airport updateAirport(long id, Airport updatedAirport) {
+        Optional<Airport> airportOptional = airportRepository.findById(id);
 
-        if (airportToUpdate != null) {
+        if (airportOptional.isPresent()) {
+            Airport airportToUpdate = airportOptional.get();
             airportToUpdate.setCity(updatedAirport.getCity());
             airportToUpdate.setCode(updatedAirport.getCode());
             airportToUpdate.setName(updatedAirport.getName());
 
-            airportRepository.save(airportToUpdate);
+            return airportRepository.save(airportToUpdate);
         }
-        return airportToUpdate;
+
+        return null;
     }
 }
