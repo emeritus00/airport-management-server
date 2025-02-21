@@ -24,26 +24,27 @@ public class AircraftService {
         return aircraftRepository.save(newAircraft);
     }
 
-    public Aircraft findAircraftByName(String name) {
-        return aircraftRepository.findByAircraftName(name);
+    public Aircraft findAircraftByAirlineName(String airlineName) {
+        return aircraftRepository.findByAirlineName(airlineName);
     }
 
     public void deleteAircraftById(long id) {
         aircraftRepository.deleteById(id);
     }
 
-    public Aircraft updateAircraft(Aircraft updatedAircraft) {
-        Aircraft aircraftToUpdate = findAircraftById(updatedAircraft.getId());
+    public Aircraft updateAircraft(long id, Aircraft updatedAircraft) {
+        Optional<Aircraft> aircraftOptional = aircraftRepository.findById(id);
 
-        if (aircraftToUpdate != null) {
+        if (aircraftOptional.isPresent()) {
+            Aircraft aircraftToUpdate = aircraftOptional.get();
             aircraftToUpdate.setAirlineName(updatedAircraft.getAirlineName());
             aircraftToUpdate.setType(updatedAircraft.getType());
             aircraftToUpdate.setNumberOfPassengers(updatedAircraft.getNumberOfPassengers());
 
-            aircraftRepository.save(aircraftToUpdate);
+            return aircraftRepository.save(aircraftToUpdate);
         }
 
-        return aircraftToUpdate;
+        return null;
     }
 
 

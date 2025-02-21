@@ -24,8 +24,12 @@ public class PassengerService {
         return passengerRepository.save(newPassenger);
     }
 
-    public Passenger findPassengerByName(String name) {
-        return passengerRepository.findByPassengerName(name);
+    public Passenger findPassengerByFirstName(String firstName) {
+        return passengerRepository.findByFirstName(firstName);
+    }
+
+    public Passenger findPassengerByLastName(String lastName) {
+        return passengerRepository.findByLastName(lastName);
     }
 
     public void deletePassengerById(long id) {

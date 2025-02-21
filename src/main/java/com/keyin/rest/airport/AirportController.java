@@ -21,6 +21,11 @@ public class AirportController {
         return airportService.findAirportById(id);
     }
 
+    @GetMapping("/airport/{name}")
+    public Airport getAirportByName(@PathVariable String name) {
+        return airportService.findAirportByName(name);
+    }
+
     @PostMapping("/airport")
     public Airport createAirport(@RequestBody Airport newAirport) {
         return airportService.createAirport(newAirport);

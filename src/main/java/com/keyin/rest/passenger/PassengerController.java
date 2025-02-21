@@ -1,5 +1,6 @@
 package com.keyin.rest.passenger;
 
+import com.keyin.rest.city.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -28,6 +29,16 @@ public class PassengerController {
     @PutMapping("/passenger/{id}")
     public Passenger updatePassenger(@RequestBody Passenger updatedPassenger) {
         return passengerService.updatePassenger(updatedPassenger);
+    }
+
+    @GetMapping("/passenger/{firstName}")
+    public Passenger getPassengerByFirstName(@PathVariable String firstName) {
+        return passengerService.findPassengerByFirstName(firstName);
+    }
+
+    @GetMapping("/passenger/{lastName}")
+    public Passenger getPassengerByLastName(@PathVariable String lastName) {
+        return passengerService.findPassengerByLastName(lastName);
     }
 
     @DeleteMapping("/passenger/{id}")

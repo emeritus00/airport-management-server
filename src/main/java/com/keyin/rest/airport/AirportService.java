@@ -25,7 +25,7 @@ public class AirportService {
     }
 
     public Airport findAirportByName(String name) {
-        return airportRepository.findByAirportName(name);
+        return airportRepository.findByName(name);
     }
 
     public void deleteAirportById(long id) {

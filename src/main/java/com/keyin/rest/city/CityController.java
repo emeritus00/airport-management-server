@@ -1,5 +1,6 @@
 package com.keyin.rest.city;
 
+import com.keyin.rest.airport.Airport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,11 @@ public class CityController {
     @PutMapping("/city/{id}")
     public City updateCity(@RequestBody City updatedCity) {
         return cityService.updateCity(updatedCity);
+    }
+
+    @GetMapping("/city/{name}")
+    public City getCityByName(@PathVariable String name) {
+        return cityService.findCityByName(name);
     }
 
     @DeleteMapping("/city/{id}")
