@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="97365dea-1f17-41b4-8499-627cf091254e" name="Changes" comment="RestServiceApplication codes added to main.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/rest/aircraft/Aircraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/rest/aircraft/Aircraft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/rest/city/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/rest/city/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/rest/city/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/rest/city/CityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/rest/city/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/rest/city/CityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/rest/passenger/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/rest/passenger/Passenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/rest/passenger/PassengerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/rest/passenger/PassengerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/rest/passenger/PassengerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/rest/passenger/PassengerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keyin/rest/passenger/PassengerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keyin/rest/passenger/PassengerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

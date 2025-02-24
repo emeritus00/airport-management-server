@@ -13,17 +13,17 @@ public class CityController {
     @Autowired
     private CityService cityService;
 
-    @GetMapping("/city")
+    @GetMapping("/cities")
     public List<City> getAllCities() {
         return cityService.findAllCities();
     }
 
-    @GetMapping("/city/{id}")
+    @GetMapping("/cities/{id}")
     public City getCityByID(@PathVariable long id) {
         return cityService.findCityById(id);
     }
 
-    @GetMapping("/city/name/{name}")
+    @GetMapping("/cities/name/{name}")
     public City getCityByName(@PathVariable String name) {
         return cityService.findCityByName(name);
     }
@@ -33,12 +33,12 @@ public class CityController {
         return cityService.createCity(newCity);
     }
 
-    @PutMapping("/city/{id}")
+    @PutMapping("/cities/{id}")
     public City updateCity(@PathVariable long id, @RequestBody City updatedCity) {
         return cityService.updateCity(id, updatedCity);
     }
 
-    @DeleteMapping("/city/{id}")
+    @DeleteMapping("/cities/{id}")
     public void deleteCityById(@PathVariable long id) {
         cityService.deleteCityById(id);
     }
