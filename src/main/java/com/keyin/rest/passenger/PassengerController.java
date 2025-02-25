@@ -16,13 +16,13 @@ public class PassengerController {
         return passengerService.findAllPassengers();
     }
 
-    @GetMapping("/passengers/{id}")
+    @GetMapping("/passengers/passenger/{id}")
     public Passenger getPassengerByID(@PathVariable long id) {
         return passengerService.findPassengerById(id);
     }
 
 
-    @GetMapping("/passengers/passenger/{lastName}")
+    @GetMapping("/passengers/{lastName}")
     public Passenger getPassengerByLastName(@PathVariable String lastName) {
         return passengerService.findPassengerByLastName(lastName);
     }
@@ -32,13 +32,13 @@ public class PassengerController {
         return passengerService.createPassenger(newPassenger);
     }
 
-    @PutMapping("/passenger/{id}")
+    @PutMapping("/passengers/{id}")
     public Passenger updatePassenger(@PathVariable long id, @RequestBody Passenger updatedPassenger) {
         updatedPassenger.setId(id); // Set the ID from the path variable
         return passengerService.updatePassenger(updatedPassenger);
     }
 
-    @DeleteMapping("/passenger/{id}")
+    @DeleteMapping("/passengers/{id}")
     public void deletePasengerById(@PathVariable long id) {
         passengerService.deletePassengerById(id);
     }
