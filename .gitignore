@@ -36,3 +36,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignore Terraform state files in infra
+infra/*.tfstate
+infra/*.tfstate.*
+infra/*.backup
+infra/.terraform/
+infra/.terraform.lock.hcl
