@@ -16,13 +16,13 @@ public class PassengerController {
         return passengerService.findAllPassengers();
     }
 
-    @GetMapping("/passengers/passenger/{id}")
+    @GetMapping("/passengers/{id}")
     public Passenger getPassengerByID(@PathVariable long id) {
         return passengerService.findPassengerById(id);
     }
 
 
-    @GetMapping("/passengers/{lastName}")
+    @GetMapping("/passengers/passenger/{lastName}")
     public Passenger getPassengerByLastName(@PathVariable String lastName) {
         return passengerService.findPassengerByLastName(lastName);
     }
